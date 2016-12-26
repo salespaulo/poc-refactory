@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+	
+	<preConditions>
+        <dbms type="PostgreSQL" />
+        <runningAs username="sisb" />
+    </preConditions>	
+
+	<changeSet id="schema" author="paulo.sales" >
+	    <comment>Creating initial 'poc-refactory' database schema.</comment>
+	    <sqlFile path="schema.sql" relativeToChangelogFile="true" encoding="UTF-8" />
+	</changeSet>
+    
+	<changeSet id="data" author="paulo.sales" >
+	    <comment>Creating initial 'poc-refactory' data.</comment>
+	    <sqlFile path="data.sql" relativeToChangelogFile="true" encoding="UTF-8" />
+	</changeSet>
+    
+</databaseChangeLog>
