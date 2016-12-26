@@ -1,2 +1,2 @@
 # poc-refactory
- [Guichê Virtual](http://www.guichevirtual.com.br) TechTalk refactoing code using Lambdas and Funtional Programming with Java 8.
+ [Guichê Virtual](http://www.guichevirtual.com.br) TechTalk refactoing code using Lambdas, Funtional Programming and Java 8.
