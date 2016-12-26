@@ -8,7 +8,7 @@
 	
 	<preConditions>
         <dbms type="PostgreSQL" />
-        <runningAs username="sisb" />
+        <runningAs username="poc" />
     </preConditions>	
 
 	<changeSet id="schema" author="paulo.sales" >

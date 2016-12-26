@@ -9,12 +9,12 @@ public class GVBanner implements Banner {
 
 	@Override
 	public void printBanner(Environment env, Class<?> clazz, PrintStream out) {
-		out.append(" _____       _      _           _   _ _      _               _ \n");
-		out.append("|  __ \\     (_)    | |         | | | (_)    | |             | |\n");
-		out.append("| |  \\/_   _ _  ___| |__   ___ | | | |_ _ __| |_ _   _  __ _| |\n");
-		out.append("| | __| | | | |/ __| '_ \\ / _ \\| | | | | '__| __| | | |/ _\\`| |\n");
-		out.append("| |_\\ \\ |_| | | (__| | | |  __/\\ \\_/ / | |  | |_| |_| | (_| | |\n");
-		out.append(" \\____/\\__,_|_|\\___|_| |_|\\___| \\___/|_|_|   \\__|\\__,_|\\__,_|_|\n\n");
+		out.append("                  _            _     _        _ _    \n");
+		out.append("  __ ___   __    | |_ ___  ___| |__ | |_ __ _| | | __\n");
+		out.append(" / _` \\ \\ / /____| __/ _ \\/ __| '_ \\| __/ _` | | |/ /\n");
+		out.append("| (_| |\\ V /_____| ||  __/ (__| | | | || (_| | |   < \n");
+		out.append(" \\__, | \\_/       \\__\\___|\\___|_| |_|\\__\\__,_|_|_|\\_\\\n");
+		out.append(" |___/                                               \n");
 	}
 
 }
