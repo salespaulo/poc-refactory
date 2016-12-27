@@ -1,4 +1,4 @@
-package org.ps.poc.refactory.domain;
+package org.ps.poc.refactory.travel.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

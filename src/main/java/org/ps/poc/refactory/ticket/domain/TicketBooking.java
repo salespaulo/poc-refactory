@@ -1,4 +1,4 @@
-package org.ps.poc.refactory.domain;
+package org.ps.poc.refactory.ticket.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,8 +13,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.ps.poc.refactory.price.CalculateTotalPriceForTicket;
+import org.ps.poc.refactory.price.domain.Price;
+import org.ps.poc.refactory.travel.domain.Seat;
+import org.ps.poc.refactory.travel.domain.ServiceTravel;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Data
 @EqualsAndHashCode(of = "id", callSuper = false)
@@ -36,25 +42,32 @@ public class TicketBooking {
 	@Column(name="tp_ticket", nullable=false)
 	private String type;
 	
+	@Getter
 	@Column(name="price_base", nullable=false)
 	private BigDecimal priceBase;
 
-	@Column(name="price_board_tax", nullable=false)
+	@Getter
+	@Column(name="price_board_tax")
 	private BigDecimal priceBoardTax;
 
-	@Column(name="price_discount", nullable=false)
+	@Getter
+	@Column(name="price_discount")
 	private BigDecimal priceDiscount;
 
-	@Column(name="price_insurance", nullable=false)
+	@Getter
+	@Column(name="price_insurance")
 	private BigDecimal priceInsurance;
 
-	@Column(name="price_other_taxes", nullable=false)
+	@Getter
+	@Column(name="price_other_taxes")
 	private BigDecimal priceOtherTaxes;
 
-	@Column(name="price_tax", nullable=false)
+	@Getter
+	@Column(name="price_tax")
 	private BigDecimal priceTax;
 
-	@Column(name="price_toll", nullable=false)
+	@Getter
+	@Column(name="price_toll")
 	private BigDecimal priceToll;
 
 	@ManyToOne
@@ -66,4 +79,26 @@ public class TicketBooking {
 	@JoinColumn(name="serv_trav_id", nullable=false)
 	private ServiceTravel service;
 
+	public BigDecimal getPriceTotal() {
+		return CalculateTotalPriceForTicket.from(
+				this.priceBase, 
+				this.priceToll, 
+				this.priceTax, 
+				this.priceBoardTax,
+				this.priceInsurance, 
+				this.priceOtherTaxes)
+				.withDiscount(this.priceDiscount)
+				.calculate();
+	}
+	
+	public TicketBooking setPrice(final Price price) {
+		this.setPriceBase(price.getBase());
+		this.setPriceToll(price.getToll());
+		this.setPriceTax(price.getTax());
+		this.setPriceBoardTax(price.getBoardTax());
+		this.setPriceInsurance(price.getInsurance());
+		this.setPriceOtherTaxes(price.getOtherTaxes());
+		this.setPriceDiscount(price.getDiscount());
+		return this;
+	}
 }

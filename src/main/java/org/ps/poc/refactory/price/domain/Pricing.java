@@ -1,4 +1,4 @@
-package org.ps.poc.refactory.domain;
+package org.ps.poc.refactory.price.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.ps.poc.refactory.travel.domain.ServiceTravel;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

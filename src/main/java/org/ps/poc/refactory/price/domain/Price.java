@@ -1,4 +1,4 @@
-package org.ps.poc.refactory.domain;
+package org.ps.poc.refactory.price.domain;
 
 import java.math.BigDecimal;
 
@@ -20,25 +20,25 @@ public class Price {
 	@Column(unique=true, nullable=false)
 	private Integer id;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal base;
 
-	@Column(name="board_tax", nullable=false)
+	@Column
 	private BigDecimal boardTax;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal discount;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal insurance;
 
-	@Column(name="other_taxes", nullable=false)
+	@Column(name="other_taxes")
 	private BigDecimal otherTaxes;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal tax;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal toll;
 	
 }
