@@ -1,9 +1,12 @@
 package org.ps.poc.refactory.controller;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.ps.poc.refactory.component.CalculateTotalPriceForTicket;
@@ -50,4 +53,22 @@ public class TicketController {
 		total.setTotal(calculate);
 		return total;
 	}
+
+	@RequestMapping(value="/type/grouping", method=RequestMethod.GET)
+	public Map<String, List<TicketBooking>> groupingByType() {
+		List<TicketBooking> tickets = ticketBookingRepository.findAll();
+		Map<String, List<TicketBooking>> grouped = new HashMap<String, List<TicketBooking>>();
+		
+		for (TicketBooking ticket : tickets) {
+			if (! grouped.containsKey(ticket.getType())) {
+				grouped.put(ticket.getType(), new ArrayList<TicketBooking>());
+				grouped.get(ticket.getType()).add(ticket);
+			} else {
+				grouped.get(ticket.getType()).add(ticket);
+			}
+		}
+		
+		return grouped;
+	}
+
 }

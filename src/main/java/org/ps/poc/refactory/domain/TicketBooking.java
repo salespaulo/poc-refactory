@@ -39,22 +39,22 @@ public class TicketBooking {
 	@Column(name="price_base", nullable=false)
 	private BigDecimal priceBase;
 
-	@Column(name="price_board_tax", nullable=false)
+	@Column(name="price_board_tax")
 	private BigDecimal priceBoardTax;
 
-	@Column(name="price_discount", nullable=false)
+	@Column(name="price_discount")
 	private BigDecimal priceDiscount;
 
-	@Column(name="price_insurance", nullable=false)
+	@Column(name="price_insurance")
 	private BigDecimal priceInsurance;
 
-	@Column(name="price_other_taxes", nullable=false)
+	@Column(name="price_other_taxes")
 	private BigDecimal priceOtherTaxes;
 
-	@Column(name="price_tax", nullable=false)
+	@Column(name="price_tax")
 	private BigDecimal priceTax;
 
-	@Column(name="price_toll", nullable=false)
+	@Column(name="price_toll")
 	private BigDecimal priceToll;
 
 	@ManyToOne

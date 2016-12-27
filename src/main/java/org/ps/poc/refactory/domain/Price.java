@@ -23,22 +23,22 @@ public class Price {
 	@Column(nullable=false)
 	private BigDecimal base;
 
-	@Column(name="board_tax", nullable=false)
+	@Column(name="board_tax")
 	private BigDecimal boardTax;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal discount;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal insurance;
 
 	@Column(name="other_taxes", nullable=false)
 	private BigDecimal otherTaxes;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal tax;
 
-	@Column(nullable=false)
+	@Column
 	private BigDecimal toll;
 	
 }
