@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 public class App {
 
 	public static void main(String[] args) {
-		healthy(new SpringApplicationBuilder(App.class).banner(new GVBanner()).run(args));
+		healthy(new SpringApplicationBuilder(App.class).run(args));
 	}
 
 	private static void healthy(ConfigurableApplicationContext context) {
