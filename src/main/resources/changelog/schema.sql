@@ -3,14 +3,14 @@ CREATE TABLE service_travel (
     name          VARCHAR(100) NOT NULL
 );
 
-ALTER TABLE service_travel OWNER TO poc;
+ALTER TABLE service_travel OWNER TO postgres;
 
 CREATE TABLE seat (
 	id      INT          PRIMARY KEY,
 	tp_seat VARCHAR(100) NOT NULL
 );
 
-ALTER TABLE seat OWNER TO poc;
+ALTER TABLE seat OWNER TO postgres;
 
 CREATE TABLE ticket_booking (
 	id                SERIAL         PRIMARY KEY,
@@ -29,7 +29,7 @@ CREATE TABLE ticket_booking (
   	price_other_taxes NUMERIC(10, 2) NULL
 );
 
-ALTER TABLE ticket_booking OWNER TO poc;
+ALTER TABLE ticket_booking OWNER TO postgres;
 
 CREATE TABLE price (
 	id          INT            PRIMARY KEY,
@@ -42,7 +42,7 @@ CREATE TABLE price (
   	other_taxes NUMERIC(10, 2) NULL
 );
 
-ALTER TABLE price OWNER TO poc;
+ALTER TABLE price OWNER TO postgres;
 
 CREATE TABLE pricing (
 	id           SERIAL       PRIMARY KEY,
@@ -53,5 +53,5 @@ CREATE TABLE pricing (
 	price_id     INT REFERENCES price (id)
 );
 
-ALTER TABLE pricing OWNER TO poc;
+ALTER TABLE pricing OWNER TO postgres;
 
